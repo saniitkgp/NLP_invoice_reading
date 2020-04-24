@@ -1,0 +1,233 @@
+from keras.applications.vgg16 import VGG16
+from keras.applications.vgg16 import preprocess_input
+
+import glob
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+import random
+import pickle
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+
+#-------------------------------------Distance measure-------------------------
+
+def chi2_distance(histA, histB, eps = 1e-10):
+    # compute the chi-squared distance
+ 
+       
+    d = 0.5 * np.sum([((a - b) ** 2) / (a + b + eps)
+            for (a, b) in zip(histA, histB)])        
+   
+    return d
+   
+def EuclideanDistance(x,y):
+    return np.sqrt(sum(pow(a-b,2) for a, b in zip(x, y)))
+
+ #----------saving and loading operation ---------------------
+ 
+def SaveFeatures(features,path):
+    with open(path,'wb') as file:
+        pickle.dump(features,file)
+
+def LoadFeature(path,atOnce = 1):
+    with open(path, 'rb') as file:
+        return pickle.load(file)
+
+#---------------------------------------------------------------------
+
+def displayColorImage(img):
+    img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+    plt.imshow(img)
+    plt.title("RGB Image")
+    plt.axis('off')
+
+def displayGrayImage(img):
+    plt.imshow(img, cmap='gray')
+    plt.title("Gray Image")
+    plt.axis('off')
+
+def compareColorImage(img1, img2, isColor = 1):
+    #fig,(ax1,ax2) = plt.subplots(1,2)
+    fig = plt.figure()
+   
+    if(isColor ==1):
+        ax1 =fig.add_subplot(1,2,1)
+        plt.imshow(img1)
+        ax1.set_title("Image1")
+       # ax1.axis('off')
+       
+        ax2 =fig.add_subplot(1,2,2)
+        plt.imshow(img2)
+        ax2.set_title("Image2")
+        #ax2.axis('off')
+   
+    else:
+        ax1 =fig.add_subplot(1,2,1)
+        plt.imshow(img1, cmap='gray')
+        ax1.set_title("Image1")
+        ax1.axis('off')
+       
+        ax2 = fig.add_subplot(1,2,1)
+        plt.imshow(img2,cmap='gray')
+        ax2.set_title("Image2")
+        ax2.axis('off')        
+
+
+
+def DisplaySimilarImage(img_mat,idx,result_len=10):
+    rows=np.int(result_len/2)
+    cols=np.int(result_len/2)
+    fig,axes =plt.subplots(rows,cols)
+    i=0
+    for row in range(rows):
+        for col in range(cols):
+            axes[row,col].imshow(img_mat[idx[i][1]])
+            axes[row,col].set_title("Image"+str(i))
+            axes[row,col].axis('off')
+            i=i+1
+
+#---------------------pre-processing ----------------------
+
+def ApplyPreProcess(images):
+    process_mat =[]
+    for img in images:
+        img =cv2.resize(img,(126,126))
+        img_data = np.expand_dims(img,axis=0)
+        img_data = preprocess_input(img_data)
+        process_mat.append(img_data)
+    return process_mat
+
+
+#---------------------------frame extraction--------------------
+
+def ImageMatrix(path):
+    img_path = glob.glob(path)
+    img_mat=[]
+    for img in img_path:
+        img= cv2.imread(img)      
+        img= cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+        img_mat.append(img)
+
+    return img_mat
+
+   
+#-------------------feature extraction------------------------------
+
+def ExtractVGGFeature(images):
+    print("Applying Pre_processing")
+    images =ApplyPreProcess(images)
+    model = VGG16(weights='imagenet', include_top=False)
+    vgg_features=[]
+    print("Extracting features")
+    c=0
+    for img in images:
+        img = model.predict(img)
+        vgg_features.append(img.flatten())
+        c +=1
+        print(c)
+    return vgg_features
+
+
+def VGGSimilarityMeasure(features,queryFeaturs):
+    similarity_functiong=EuclideanDistance
+    similar= []
+    i=0
+    for feature in features:
+        x=feature
+        y=queryFeaturs[0]  
+        distance = similarity_functiong(x,y)  
+        similar.append([i,distance])
+        i=i+1
+    similar=sorted([(v, k) for (k, v) in similar])
+    return similar      
+
+
+#---------------------------------------------------
+
+def NormalizeData(data):
+    data =np.array(data)
+   
+    norm_scaler = StandardScaler()
+    norm_scaler.fit(data)
+   
+    data = norm_scaler.transform(data)
+   
+    return norm_scaler,data
+   
+def ApplyPCA(features,pca_scale =.80):
+    features =np.array(features)
+   
+    pca_scaler = PCA(pca_scale)
+    pca_scaler.fit(features)
+   
+    features = pca_scaler.transform(features)
+   
+    return pca_scaler,features
+   
+def ApplyPCA_Without_Norm(features_vector,spca_scale =.80):
+   
+    pca = PCA(spca_scale)
+    #norm_scaler = StandardScaler()
+    pca_features =[]
+    for features in features_vector:
+        features=np.reshape(features,(1,4608))
+        #features = norm_scaler.fit_transform(features)
+        features = pca.fit_transform(features)
+        pca_features.append(features)
+       
+    return pca_features
+
+
+def ApplyPCAOnFeatures(features , num_conmponent=500):
+    pca = PCA(n_components=num_conmponent)
+    pca_features = pca.fit_transform(vgg_features)
+   
+    return pca, pca_features
+   
+#-----------------------main-------------------------
+
+path="C:/Users/sanjeev.br.kumar/Documents/CBIR/Corel100/*jpg"
+img_mat_path ="C:/Users/sanjeev.br.kumar/Documents/CBIR/img_mat"
+vgg_features_path ="C:/Users/sanjeev.br.kumar/Documents/CBIR/vgg_features"
+color_features_path ="C:/Users/sanjeev.br.kumar/Documents/CBIR/color_features"
+hog_features_path ="C:/Users/sanjeev.br.kumar/Documents/CBIR/hog_features"
+orb_features_path ="C:/Users/sanjeev.br.kumar/Documents/CBIR/orb_features"
+
+
+img_mat =ImageMatrix(path)
+SaveFeatures(img_mat,img_mat_path)
+
+
+vgg_features =ExtractVGGFeature(img_mat)
+SaveFeatures(vgg_features,vgg_features_path)
+
+ 
+img_mat =LoadFeature(img_mat_path)
+vgg_features =LoadFeature(vgg_features_path)
+color_features = LoadFeature(color_features_path)
+
+pca = PCA(n_components=500)
+pca_features = pca.fit_transform(vgg_features)
+
+
+#-------------------operation-----------
+img_mat = LoadFeature(img_mat_path)
+vgg_features= LoadFeature(vgg_features_path)
+
+pca ,pca_features = ApplyPCAOnFeatures(vgg_features)
+
+# ------------------querying image ---------------
+no=random.randint(0,1000)
+
+queryImg =img_mat[no]
+displayColorImage(queryImg)
+
+query_vgg_featuers = ExtractVGGFeature([queryImg])
+query_pca_features  = pca.transform(query_vgg_featuers)
+
+similar_img = VGGSimilarityMeasure(pca_features,query_pca_features )
+
+DisplaySimilarImage(img_mat,similar_img)
+
