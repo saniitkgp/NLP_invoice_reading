@@ -1,0 +1,11 @@
+1. https://stackoverflow.com/questions/23506105/extracting-text-opencv    # creating the bounding box arround the text (impo)
+2. https://www.sicara.ai/blog/2019-03-12-edge-detection-in-opencv         # edge detection  canny ---- ()
+3. https://medium.com/@raqueebilahi/text-lstm-f1aaceeb5727                #
+4. https://medium.com/@armandj.olivares/text-detection-on-natural-scenes-with-tensorflow-object-detection-api-bfa936d3d103   # object detection using tensorflow API
+5. https://machinelearningmastery.com/gentle-introduction-concept-drift-machine-learning/   #drift machine-learning
+6. https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/#.Xqf7f2gzbIW    # Transformer Attention
+7. https://machinelearningmastery.com/learn-add-numbers-seq2seq-recurrent-neural-networks/            #  
+8. https://notebooks.quantumstat.com/     # super duper NLP Repo
+
+
+
