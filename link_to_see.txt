@@ -7,5 +7,15 @@
 7. https://machinelearningmastery.com/learn-add-numbers-seq2seq-recurrent-neural-networks/            #  
 8. https://notebooks.quantumstat.com/     # super duper NLP Repo
 
+9. https://medium.com/saarthi-ai/how-to-build-your-own-ocr-a5bb91b622ba
+
+
+
+
+
+10. https://medium.com/@vinay.dec26/yat-an-open-source-data-annotation-tool-for-yolo-8bb75bce1767
+
+11. https://medium.com/saarthi-ai/how-to-build-your-own-ocr-a5bb91b622ba
+12. https://github.com/Neerajj9/Text-Detection-using-Yolo-Algorithm-in-keras-tensorflow
 
 
