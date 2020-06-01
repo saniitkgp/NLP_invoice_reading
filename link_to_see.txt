@@ -2,10 +2,10 @@
 2. https://www.sicara.ai/blog/2019-03-12-edge-detection-in-opencv         # edge detection  canny ---- ()
 3. https://medium.com/@raqueebilahi/text-lstm-f1aaceeb5727                #
 4. https://medium.com/@armandj.olivares/text-detection-on-natural-scenes-with-tensorflow-object-detection-api-bfa936d3d103   # object detection using tensorflow API
-5. https://machinelearningmastery.com/gentle-introduction-concept-drift-machine-learning/   #drift machine-learning
+5. https://machinelearningmastery.com/gentle-introduction-concept-drift-machine-learning/                  #drift machine-learning
 6. https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/#.Xqf7f2gzbIW    # Transformer Attention
 7. https://machinelearningmastery.com/learn-add-numbers-seq2seq-recurrent-neural-networks/            #  
-8. https://notebooks.quantumstat.com/     # super duper NLP Repo
+8. https://notebooks.quantumstat.com/                                                                      # super duper NLP Repo
 
 9. https://medium.com/saarthi-ai/how-to-build-your-own-ocr-a5bb91b622ba
 
@@ -18,4 +18,26 @@
 11. https://medium.com/saarthi-ai/how-to-build-your-own-ocr-a5bb91b622ba
 12. https://github.com/Neerajj9/Text-Detection-using-Yolo-Algorithm-in-keras-tensorflow
 
+13. https://github.com/kriyeng/yolo-on-colab-notebook/blob/master/Tutorial_DarknetToColab.ipynb    # darknet installation gudie + custom training of yolo
 
+14. http://datahacker.rs/tensorflow2-0-yolov3/   # llink to understand
+
+15. https://realelectricwizard.wordpress.com/2019/03/24/training-yolo-v3-on-custom-data-set-on-linux/
+
+16. https://blog.francium.tech/custom-object-training-and-detection-with-yolov3-darknet-and-opencv-41542f2ff44e
+
+17. https://github.com/githubharald/WordSegmentation/blob/master/src/main.py
+18. http://jalammar.github.io/illustrated-transformer/                                                    --- transformer/illsutration
+
+19 .   https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html?highlight=morphologyex#getstructuringelement   --- opencv + doc + parameter
+20. https://www.groundai.com/project/yolact-real-time-instance-segmentation/1     --yolo image segmentation 
+21. https://medium.com/@vijendra1125/custom-mask-rcnn-using-tensorflow-object-detection-api-101149ce0765    
+22. https://kharshit.github.io/blog/2019/08/23/quick-intro-to-instance-segmentation
+23. https://medium.com/analytics-vidhya/instance-segmentation-using-mask-r-cnn-on-a-custom-dataset-78631845de2a
+24. https://machinelearningmastery.com/how-to-perform-object-detection-in-photographs-with-mask-r-cnn-in-keras/
+
+
+
+   https://www.statsmodels.org/stable/mixed_glm.html#
+
+24.  https://towardsdatascience.com/generalized-linear-models-9cbf848bb8ab

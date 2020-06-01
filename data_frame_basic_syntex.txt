@@ -15,6 +15,9 @@ https://www.geeksforgeeks.org/how-to-select-multiple-columns-in-a-pandas-datafra
 
 
 
+
+
+
 def calculate_out_img_size(img, Filter=[None],Stride=[None],Polling=[None]):
     if len(img.shape) > 2:
         w,h,_= img.shape
@@ -34,3 +37,17 @@ def calculate_out_img_size(img, Filter=[None],Stride=[None],Polling=[None]):
         print('new W = {}, new H = {}'.format(w,h))
             
         
+		
+W = 28, H = 28
+layer :  1
+new W = 26.0, new H = 26.0
+layer :  2
+new W = 13.0, new H = 13.0
+layer :  3
+new W = 11.0, new H = 11.0
+layer :  4
+new W = 10.0, new H = 10.0
+layer :  5
+new W = 8.0, new H = 8.0
+layer :  6
+new W = 4.0, new H = 4.0

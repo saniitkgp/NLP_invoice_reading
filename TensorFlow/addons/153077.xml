@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images-gt</folder>
+	<filename>153077.png</filename>
+	<path>C:\Users\Sanjeev\Documents\Accenture office\segmentation\interactivesegmentation\segmentation\images-gt\153077.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>481</width>
+		<height>321</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>object</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>81</xmin>
+			<ymin>87</ymin>
+			<xmax>474</xmax>
+			<ymax>320</ymax>
+		</bndbox>
+	</object>
+</annotation>
