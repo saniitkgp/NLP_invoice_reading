@@ -9,10 +9,6 @@
 
 9. https://medium.com/saarthi-ai/how-to-build-your-own-ocr-a5bb91b622ba
 
-
-
-
-
 10. https://medium.com/@vinay.dec26/yat-an-open-source-data-annotation-tool-for-yolo-8bb75bce1767
 
 11. https://medium.com/saarthi-ai/how-to-build-your-own-ocr-a5bb91b622ba
@@ -36,8 +32,21 @@
 23. https://medium.com/analytics-vidhya/instance-segmentation-using-mask-r-cnn-on-a-custom-dataset-78631845de2a
 24. https://machinelearningmastery.com/how-to-perform-object-detection-in-photographs-with-mask-r-cnn-in-keras/
 
-
+https://github.com/ming71/Mask-RCNN-annotation    - markRcnn annotation
 
    https://www.statsmodels.org/stable/mixed_glm.html#
 
 24.  https://towardsdatascience.com/generalized-linear-models-9cbf848bb8ab
+
+25. https://towardsdatascience.com/background-removal-with-deep-learning-c4f2104b3157
+
+26- https://www.learnopencv.com/pytorch-for-beginners-semantic-segmentation-using-torchvision/    ### for out project
+27. https://www.learnopencv.com/applications-of-foreground-background-separation-with-semantic-segmentation/
+28 . https://chercher.tech/opencv/drawing-mouse-images-opencv
+https://dius.com.au/2017/08/03/using-statsmodels-glms-to-model-beverage-consumption/
+
+
+http://www.robots.ox.ac.uk/~vgg/software/via/via_demo.html     --- online annotation tool 
+
+
+s://stackoverflow.com/questions/48727914/how-to-use-ridge-detection-filter-in-opencv/48728243   --ridge detection
